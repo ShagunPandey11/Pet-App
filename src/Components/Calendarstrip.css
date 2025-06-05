@@ -1,0 +1,24 @@
+.calendar-strip {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ddd;
+}
+
+.calendar-day {
+  text-align: center;
+  padding: 8px;
+  cursor: pointer;
+  flex: 1;
+  border-radius: 6px;
+}
+
+.calendar-day.today {
+  font-weight: bold;
+  color: #2196f3;
+}
+
+.calendar-day.selected {
+  background-color: #e3f2fd;
+}
