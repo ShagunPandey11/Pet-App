@@ -1,0 +1,29 @@
+.reminder-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  padding: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reminder-card:hover {
+  background-color: #f0f0f0;
+}
+
+.reminder-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.reminder-actions button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}

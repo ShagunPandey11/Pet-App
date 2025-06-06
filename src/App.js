@@ -76,6 +76,7 @@ function App() {
   const [reminders, setReminders] = useState(dummyReminders); // All reminders
   const [showForm, setShowForm] = useState(false); // Toggle form view
   const [editingReminder, setEditingReminder] = useState(null); // 
+  const [viewAll, setViewAll] = useState(false);
 
   const addReminder = (newReminder) => {
     console.log(newReminder);
@@ -110,9 +111,13 @@ function App() {
 
   return (
     <div className="app-container">
+      <div className='reminder-header'>
+          <h2 className='reminder-heading'>Daily Reminders</h2>
+          <button className='filter-all-btn'  onClick={()=>setViewAll(true)}> View All</button>
+      </div>
       <CalendarStrip
         selectedDate={selectedDate}
-        onDateSelect={(date) => setSelectedDate(date)}
+        onDateSelect={(date) => {setSelectedDate(date); setViewAll(false)}}
       />
 
       {showForm ? (
@@ -131,6 +136,7 @@ function App() {
         <ReminderList
           reminders={reminders}
           selectedDate={selectedDate}
+          viewAll={viewAll}
           onEdit={(reminder) => {
             setEditingReminder(reminder);
             setShowForm(true);

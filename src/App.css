@@ -1,40 +1,54 @@
 .app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
 }
-
-.middle-container {
-  flex: 1;
-  padding: 16px;
-  background: #fff;
-}
-
-.bottom-container {
-  padding: 10px;
-  background-color: #f0f0f0;
-  text-align: center;
-}
+/* 
+.heading-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+} */
 
 .bottom-container {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  right: 30px;
 }
 
 .add-button {
+  width: 50px;
+  height: 50px;
+  font-size: 28px;
+  border-radius: 50%;
   background-color: #4CAF50;
   color: white;
   border: none;
-  font-size: 32px;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: 0.2s ease-in-out;
 }
 
-.add-button:hover {
-  background-color: #45a049;
+.reminder-header{
+  display : flex;
+  justify-content:space-between;
+  align-items:center;
+  padding :0 1rem;
+  margin-bottom: 1rem;
+}
+
+.reminder-header h2{
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.reminder-header button{
+  padding: 0.5rem 1 rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 5px;
 }
