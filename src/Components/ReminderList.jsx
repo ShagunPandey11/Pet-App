@@ -1,105 +1,68 @@
-// ReminderList.jsx
-import React, {useState} from 'react';
-import './Reminderlist.css';
+import React, { useState, useEffect } from 'react';
 import ReminderCard from './ReminderCard';
-import './ReminderCard.css'
+import ReminderFilter from './ReminderFilter';
+import { filterReminders } from './filterReminders';
 
-function isSameDay(d1, d2) {
-  return (
-    d1.getFullYear() === d2.getFullYear() &&
-    d1.getMonth() === d2.getMonth() &&
-    d1.getDate() === d2.getDate()
-  );
-}
-
-const ReminderList = ({ reminders, selectedDate,viewAll, onEdit, onDelete, onComplete}) => {
-  const [filter, setFilter] = useState('all');
-  const now = new Date();
-
-  const todayReminders = reminders.filter(r => {  //have to chnage name of todayReminders to specific date reminders
-    const reminderDate = new Date(r.startdate);
-    const completed = r.status==='pending'? false : true;
-    return isSameDay(reminderDate, selectedDate) && !completed;
+const ReminderList = ({ reminders, selectedDate, viewAll, onEdit, onDelete, onComplete }) => {
+  const [filters, setFilters] = useState({
+    timeFilter: 'all',
+    petFilter: 'all',
+    categoryFilter: 'all',
   });
 
-  const pendingReminders = reminders.filter(r => {
-    const reminderDate = new Date(r.startdate);
-    const completed = r.status==='pending'? false : true;
-    return (
-      (reminderDate < now || isSameDay(reminderDate, now)) && !completed
-    );
-  });
-
-  const completedReminders = reminders.filter(r => r.status =='completed');
-
-  const filterByTime = (reminderList) => {
-    return reminderList.filter(r => {
-      if(viewAll){
-       
-        return true;
-         };
-      const [hour] = r.time.split(':').map(Number)
-      console.log(hour);
-      if (filter === 'morning') return hour < 12;
-      if (filter === 'afternoon') return hour >= 12 && hour < 17;
-      if (filter === 'evening') return hour >= 17;
-      return true;
+  useEffect(() => {
+    setFilters({
+      timeFilter: 'all',
+      petFilter: 'all',
+      categoryFilter: 'all',
     });
-  };
+  }, [selectedDate]);
 
-  const renderSection = (title, reminderList, allowEdit = false) => (
-    <div>
-      <h3>{title}</h3>
-      {filterByTime(reminderList).map(reminder => (
-        <ReminderCard
-          key={reminder.id}
-          reminder={reminder}
-          onEdit={allowEdit ? onEdit : null}
-          onDelete={onDelete} 
-          onComplete={allowEdit ? onComplete : null}
-          showCompleteButton={allowEdit && !reminder.completed}
-        />
-      ))}
-    </div>
-  );
-
+  const { pending: pendingReminders, completed: completedReminders , allReminders: All } = filterReminders(reminders, filters, selectedDate, viewAll);
+  console.log('Pendinf from list' + {pendingReminders})
+  console.log('com from list' + completedReminders)
+  console.log('all from list' + All)
   return (
     <div className="reminder-list">
-        <button className='all-button' onClick={()=>setFilter('all')}>View all</button>
-      <div className="filter-buttons">
-        {/* <button onClick={() => setFilter('all')}>All</button> */}
-        <button onClick={() => setFilter('morning')}>Morning</button>
-        <button onClick={() => setFilter('afternoon')}>Afternoon</button>
-        <button onClick={() => setFilter('evening')}>Evening</button>
-      </div>
-
-      {renderSection(filter, todayReminders, true)}
-        <h3>Pending Reminders</h3>
-        { pendingReminders.map(reminder => (
+      <ReminderFilter filters={filters} setFilters={setFilters} />
+      <h3>{filters.timeFilter}</h3>
+      {All.length === 0 && <p>No reminder schedule for this date</p>}
+      {All.map(reminder => (
         <ReminderCard
           key={reminder.id}
           reminder={reminder}
           onEdit={onEdit}
-          onDelete={onDelete} 
+          onDelete={onDelete}
           onComplete={onComplete}
-          showCompleteButton={!reminder.completed}
-        />
-      ))}
-       <h3>Completed Reminders</h3>
-        {completedReminders.map(reminder => (
+          showCompleteButton={true}
+        />))}
+
+      <h3>Pending Reminders</h3>
+      {pendingReminders.length === 0 && <p>No pending reminders found.</p>}
+      {pendingReminders.map(reminder => (
         <ReminderCard
           key={reminder.id}
           reminder={reminder}
-          onEdit={ onEdit}
-          onDelete={onDelete} 
-          onComplete={ null}
-          showCompleteButton={reminder.completed}
+          onEdit={onEdit}
+          onDelete={onDelete}
+          onComplete={onComplete}
+          showCompleteButton={true}
         />
       ))}
-      
-      {/* {renderSection('Pending Reminders', pendingReminders, true)}
-      {renderSection('Completed Reminders', completedReminders, false)} */}
+
+      <h3>Completed Reminders</h3>
+      {completedReminders.length === 0 && <p>No completed reminders found.</p>}
+      {completedReminders.map(reminder => (
+        <ReminderCard
+          key={reminder.id}
+          reminder={reminder}
+          onDelete={onDelete}
+          showCompleteButton={false}
+        />
+      ))}
     </div>
   );
 };
+
 export default ReminderList;
+

@@ -9,9 +9,13 @@ function ReminderCard({ reminder, onEdit, onDelete, onComplete, showCompleteButt
     <div className="reminder-card" onClick={()=>setShowActions(prev =>!prev)}>
       <div>
         <h4>{reminder.title}</h4>
+        <p>{reminder.pet}</p>
         <p>{reminder.time}</p>
+        <p>{reminder.frequency}</p>
+
       </div>
      { showActions && (<div className="reminder-actions">
+        <p>{reminder.note}</p>
         {onEdit && <button onClick={() => onEdit(reminder)}>Edit</button>}
         {onDelete && <button onClick={() => onDelete(reminder.id)}>Delete</button>}
         {showCompleteButton && (

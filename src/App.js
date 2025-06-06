@@ -36,7 +36,7 @@ const dummyReminders = [
     pet: 'Bruno',
     category: 'Exercise',
     note: '30 minutes in the park',
-    startdate: new Date('2025-06-07T19:00:00'), //tommoorow
+    startdate: new Date('2025-06-06T19:00:00'), //tommoorow
     endDate: null,
     time: '19:00',
     frequency: 'Daily',
@@ -68,7 +68,6 @@ const dummyReminders = [
   }
   
 ];
-
 
 
 function App() {
