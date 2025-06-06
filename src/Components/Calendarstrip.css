@@ -1,39 +1,188 @@
+
+/* ----------- CALENDAR STRIP STYLE ----------- */
 .calendar-strip-container {
-  margin-bottom: 10px;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  background-color: #d9f9d9; /* Light green */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.3s ease; /* it means it will take 0.3 sec to open a calendar */
 }
 
 .calendar-strip {
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  overflow-x: auto;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  align-items: center;
+  padding: 1rem; /*padding: 1rem 1rem 0.5rem 1rem; different*/
+  background-color: #d9f9d9; /* Same light green */
+  flex-wrap: nowrap; /*items needed to stay in one row only*/
+  overflow-x: auto; /* if items overflows, gives a scrollbar*/
 }
 
 .calendar-day {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 6px;
-  width: 50px;
+  margin: 0 6px;
+  transition: transform 0.2s;
 }
 
-.calendar-day.today {
-  border: 1px solid #2196F3;
+.calendar-day:hover {
+  transform: scale(1.05);
 }
 
-.calendar-day.selected {
-  background-color: #2196F3;
-  color: white;
+.today .date-circle {
+  background-color: #ffeb3b;
+  color: #000;
 }
 
-.calendar-toggle {
+.calendar-day.selected .date-circle{
+  background-color: #98f598;
+  border: 2px solid #34a853;
+}
+
+.day-name {
+  color: #000; /* Black day names */
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.date-circle {
+  margin-top: 5px;
+  background-color: #b6f5b6; /* Slightly lighter green */
+  color: #000; /* Black text */
+  font-weight: bold;
+  padding: 0.6rem;
+  border-radius: 50px; /* Pill shape*/
+  min-width: 2.2rem;
   text-align: center;
-  margin-top: 10px;
 }
 
-.full-calendar {
-  margin-top: 10px;
+
+/* ----------- TOGGLE BUTTON ----------- */
+.calendar-toggle {
+  padding: 0.7rem 1rem;
+  background-color: #d9f9d9;
+  text-align: center;
+  border-top: 1px solid #b4e8b4;
 }
+
+.calendar-toggle button {
+  background-color: #b6f5b6;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calendar-toggle button:hover {
+  background-color: #a3efa3;
+}
+
+/* ----------- FULL CALENDAR WRAPPER ----------- */
+.full-calendar-wrapper {
+  padding: 1rem;
+  background-color: #d9f9d9; /* Match strip*/
+  animation: fadeIn 0.3s ease-in-out;
+  
+}
+
+/* ----------- REACT DATEPICKER CUSTOMIZATION ----------- */
+.react-datepicker {
+  width: 100% !important;
+  max-width: 100% !important;
+  font-family: inherit;
+  background-color: #d9f9d9; 
+  box-shadow: 0 0 0 2px #b6f5b6;
+  border-radius: 12px;
+  padding: 1rem;
+  border: none !important;
+  box-sizing: border-box;
+}
+
+.react-datepicker__header {
+  background-color: #c6f0c6;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+.react-datepicker__month-container {
+  width: 100% !important;
+}
+
+.react-datepicker__month-dropdown-container,
+.react-datepicker__month-dropdown-container{
+  margin: 15px;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name{
+  color: #0c0c0c;
+  font-weight: bold;
+  /* display: block; */
+  /* border: #c94343; */
+  /* margin-bottom: 20px; */
+}
+
+.react-datepicker__day-names, /*container for day name*/
+.react-datepicker__week {   /* container for dates*/
+  display: flex;
+  justify-content: space-between;
+}
+
+.react-datepicker__day {
+  color: #000;
+  font-weight: 600;
+  background-color: transparent;
+  border-radius: 50px; 
+  transition: all 0.2s;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.2rem;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #a5e6a5;
+  color: #000;
+}
+
+.react-datepicker__day--today {
+  background-color: #ffeb3b !important;
+  color: #000;
+}
+
+/* ----------- ANIMATION ----------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 600px) {
+  .calendar-strip {
+    padding: 0.5rem;
+    overflow-x: scroll;
+  }
+
+  .calendar-day {
+    min-width: 60px;
+  }
+
+  .calendar-toggle button {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
