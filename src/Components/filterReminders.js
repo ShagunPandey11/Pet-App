@@ -51,6 +51,8 @@ export function filterReminders(reminders, filters, selectedDate, viewAll) {
   function TimeOfDayFilter(rem){
       return rem.filter(r=>{
          if(viewAll){
+          console.log('View All from inside of timeOfday');
+          console.log(viewAll);
         return true;
          };
       const [hour] = r.time.split(':').map(Number)

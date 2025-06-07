@@ -5,70 +5,6 @@ import './App.css';
 import ReminderList from './Components/ReminderList';
 import ReminderForm from  './Components/AddReminderButton';
 
-const dummyReminders = [
-  {
-    id: 1,
-    title: 'Feed Bruno',
-    pet: 'Bruno',
-    category: 'Feeding',
-    note: 'Wet food, 1 bowl',
-    startdate: new Date('2025-06-05T08:00:00'), //today
-    endDate: null,
-    time: '08:00',
-    frequency: 'Daily',
-    status: 'pending'
-  },
-  {
-    id: 2,
-    title: 'Vet Appointment',
-    pet: 'Simba',
-    category: 'Health',
-    note: 'Checkup and vaccinations',
-    startdate: new Date('2025-06-04T14:00:00'), //yesterday
-    endDate: null,
-    time: '14:00',
-    frequency: 'Once',
-    status: 'completed'
-  },
-  {
-    id: 3,
-    title: 'Evening Walk',
-    pet: 'Bruno',
-    category: 'Exercise',
-    note: '30 minutes in the park',
-    startdate: new Date('2025-06-06T19:00:00'), //tommoorow
-    endDate: null,
-    time: '19:00',
-    frequency: 'Daily',
-    status: 'pending'
-  },
-  {
-    id: 4,
-    title: 'Grooming Appointment',
-    pet: 'Luna',
-    category: 'Grooming',
-    note: 'Bath and haircut',
-    startdate: new Date('2025-06-02T11:00:00'), // Past date, 2june
-    endDate: null,
-    time: '11:00',
-    frequency: 'Monthly',
-    status: 'pending'
-  },
-  {
-    id: 5,
-    title: 'Flea Medication',
-    pet: 'Simba',
-    category: 'Health',
-    note: 'Monthly dose',
-    startdate: new Date('2025-06-10T09:00:00'), // Future- 10 june
-    endDate: null,
-    time: '09:00',
-    frequency: 'Monthly',
-    status: 'pending'
-  }
-  
-];
-
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(new Date());  
@@ -110,14 +46,14 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className='reminder-header'>
+      {showForm ? "" : (<div className='reminder-header'>
           <h2 className='reminder-heading'>Daily Reminders</h2>
-          <button className='filter-all-btn'  onClick={()=>setViewAll(true)}> View All</button>
-      </div>
-      <CalendarStrip
+          <button className='filter-all-btn'  onClick={()=>{setViewAll(true) }}> View All</button>
+      </div>)}
+     {showForm ? "" : (<CalendarStrip
         selectedDate={selectedDate}
         onDateSelect={(date) => {setSelectedDate(date); setViewAll(false)}}
-      />
+      />)}
 
       {showForm ? (
         <ReminderForm
@@ -132,6 +68,7 @@ function App() {
           existingReminder={editingReminder} // Pass existing data for edit
         />
       ) : (
+        <div className='reminder-section'>
         <ReminderList
           reminders={reminders}
           selectedDate={selectedDate}
@@ -143,16 +80,16 @@ function App() {
           onDelete={deleteReminder}
           onComplete={markAsCompleted}
         />
-      )}
-
-      <div className="bottom-container">
+        {/* <div className="bottom-container"> */}
         <button className="add-button" onClick={() => {
           setEditingReminder(null); // Make sure we're not editing
           setShowForm(true);
         }}>
           +
         </button>
+      {/* </div> */}
       </div>
+      )}
     </div>
   );
 }

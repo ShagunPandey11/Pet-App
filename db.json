@@ -1,0 +1,16 @@
+{ 
+   "reminders":[
+    {
+        "id":1,
+        "title":"Morning Walk",
+        "pet":"Simba",
+        "category":"Health",
+        "note":"Walk at 6 AM",
+        "startdate":"2025-06-07",
+        "endDate":"2025-06-08",
+        "time":"06:00",
+        "frequency":"Daily",
+        "status":"pending"
+    }
+   ]
+}

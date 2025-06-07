@@ -1,29 +1,68 @@
 .reminder-card {
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  padding: 12px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
 }
 
 .reminder-card:hover {
-  background-color: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.reminder-content h4 {
+  margin: 0 0 0.5rem;
+  color: #333;
+}
+
+.reminder-meta {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: #666;
+  /* border: 1px solid red; */
 }
 
 .reminder-actions {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
+  margin-top: 0.5rem;
 }
 
-.reminder-actions button {
+.action-btn {
+  margin-right: 8px;
+  padding: 0.4rem 0.8rem;
   border: none;
-  padding: 5px 10px;
   border-radius: 5px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #eee;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 0.9rem;
 }
+
+.action-btn:hover {
+  background-color: #ddd;
+}
+
+.action-btn.complete {
+  background-color: #4caf50;
+  color: white;
+}
+
+.completed-title {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Tick alignment with title */
+.reminder-title-row {
+  display: flex;
+  flex : nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tick-mark {
+  font-size: 1.2rem;
+}
+

@@ -1,0 +1,208 @@
+/* General layout for form */
+.reminder-form-container{
+  padding: 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* === Top Bar === */
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.form-header h2 {
+  margin: 0 auto;
+  font-size: 1.6rem;
+  color: #111;
+}
+
+.back-arrow {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.save-button {
+  background-color: #2b72f7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.save-button:hover{
+    background-color: green;
+}
+
+.Error{
+    display: block;
+}
+
+/* === Pet & Category Dropdowns === */
+.dropdown-section{
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dropdown-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* background-color: yellow; */
+}
+
+.dropdown-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #777;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.dropdown-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* === Card Style (Shared) === */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: rgb(250, 246, 246);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.card-header {
+  background-color: #111;
+  color: white;
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.card-body {
+  padding: 1rem;
+  /* background-color: blanchedalmond; */
+}
+
+.input-label{
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
+    
+}
+
+/* === Reminder Info Card === */
+.reminder-info-card .card-body{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.reminder-info-card .card-body input {
+  padding: 0.6rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+.reminder-info-card .card-body input::placeholder{
+    color: #888;
+    opacity: 1;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background-color: #ffffff;
+  margin: 10px;
+}
+
+.note-header span {
+  color: #080808;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.add-note-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.add-note-button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    border-radius: 12px;
+}
+
+.note-input{
+    padding: 0.6rem;
+    margin-left: 20px;
+}
+.note-input textarea{
+    width: 100% ;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+}
+
+/* === Reminder Settings Card === */
+.collapsible-card .card-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.collapse-icon{
+    cursor: pointer;
+}
+
+.form-section {
+  margin-bottom: 1.2rem;
+}
+
+.form-section input,
+.form-section select {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 0.5rem;
+  background-color: #f2f2f2;
+}
+
+.optional-add {
+  font-size:medium;
+  font-weight: bold;
+  color: #666;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.subtext {
+    display: block;
+  font-size: 1rem;
+  color: #999;
+  margin-bottom: 0.3rem;
+}
+

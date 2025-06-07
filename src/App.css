@@ -5,21 +5,11 @@
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
 }
-/* 
-.heading-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #333;
-} */
-
-.bottom-container {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-}
 
 .add-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
   width: 50px;
   height: 50px;
   font-size: 28px;
@@ -28,6 +18,12 @@
   color: white;
   border: none;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover{
+  background-color: #0056b3;
 }
 
 .reminder-header{
@@ -51,4 +47,13 @@
   background-color: #4a90e2;
   color: white;
   border-radius: 5px;
+}
+
+.reminder-section{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden; 
 }
