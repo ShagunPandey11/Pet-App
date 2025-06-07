@@ -21,15 +21,15 @@ const ReminderList = ({ reminders, selectedDate, viewAll, onEdit, onDelete, onCo
     });
     setShowFilters(false);
   }, [selectedDate, viewAll]);
-  console.log('view all from reminderlist')
-  console.log(viewAll)
+  // console.log('view all from reminderlist')
+  // console.log(viewAll)
   const { pending: pendingReminders, completed: completedReminders , allReminders: All } = filterReminders(reminders, filters, selectedDate, viewAll);
-  console.log('ALL reminers from reminderlist')
-  console.log(All)
-  console.log('Pending reminers from reminderlist')
-  console.log(pendingReminders)
-  console.log('completed reminers from reminderlist')
-  console.log(completedReminders)
+  // console.log('ALL reminers from reminderlist')
+  // console.log(All)
+  // console.log('Pending reminers from reminderlist')
+  // console.log(pendingReminders)
+  // console.log('completed reminers from reminderlist')
+  // console.log(completedReminders)
 
   return (
     <div className="reminder-list">

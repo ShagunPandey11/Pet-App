@@ -1,16 +1,40 @@
-{ 
-   "reminders":[
+{
+  "reminders": [
     {
-        "id":1,
-        "title":"Morning Walk",
-        "pet":"Simba",
-        "category":"Health",
-        "note":"Walk at 6 AM",
-        "startdate":"2025-06-07",
-        "endDate":"2025-06-08",
-        "time":"06:00",
-        "frequency":"Daily",
-        "status":"pending"
+      "id": "1",
+      "title": "Morning Walk",
+      "pet": "Simba",
+      "category": "Health",
+      "note": "Walk at 6 AM",
+      "startdate": "2025-06-07",
+      "endDate": "2025-06-08",
+      "time": "06:00",
+      "frequency": "Daily",
+      "status": "completed"
+    },
+    {
+      "id": "1749306592755",
+      "title": "Feed brownie",
+      "pet": "Brownie",
+      "category": "Feeding",
+      "note": "",
+      "startdate": "2025-06-08",
+      "endDate": null,
+      "time": "19:03",
+      "frequency": "Daily",
+      "status": "pending"
+    },
+    {
+      "id": "1749315037200",
+      "title": "Buy Medicine",
+      "pet": "Simba",
+      "category": "Health",
+      "note": "",
+      "startdate": "2025-06-08",
+      "endDate": null,
+      "time": "22:25",
+      "frequency": "Daily",
+      "status": "pending"
     }
-   ]
+  ]
 }

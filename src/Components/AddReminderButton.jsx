@@ -47,7 +47,7 @@ const ReminderForm = ({ onSave, onCancel, existingReminder }) => {
     if (!confirmSubmit) return;
 
     const newReminder = {
-      id: existingReminder?.id || Date.now(), // Keep same ID if editing
+      id: existingReminder?.id || Date.now().toString(), // Keep same ID if editing
       title,
       pet,
       category,

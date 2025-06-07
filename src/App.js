@@ -1,47 +1,85 @@
 // App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CalendarStrip from './Components/Calendarstrip';
 import './App.css';
 import ReminderList from './Components/ReminderList';
 import ReminderForm from  './Components/AddReminderButton';
-
+import api from "./api";
+import axios from 'axios';
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(new Date());  
-  const [reminders, setReminders] = useState(dummyReminders); // All reminders
+  const [reminders, setReminders] = useState([]); // All reminders
   const [showForm, setShowForm] = useState(false); // Toggle form view
   const [editingReminder, setEditingReminder] = useState(null); // 
   const [viewAll, setViewAll] = useState(false);
 
-  const addReminder = (newReminder) => {
-    console.log(newReminder);
-    // setReminders(prev => [...prev, newReminder]);
-    setReminders(prev => {
-  const updated = [...prev, newReminder];
-  console.log("Updated reminders:", updated);
-  return updated;
-});
+  useEffect(()=>{
+    api.get('/reminders')
+    .then(response => {
+      setReminders(response.data);
+    })
+    .catch(error =>{
+      console.log('Error fetching Reminders');
+    })
+  },[]);
 
-  };
+  const addReminder = async (newReminder) => {
+    // console.log(newReminder);
+    // setReminders(prev => [...prev, newReminder]);
+    try{
+      const response = await axios.post('http://localhost:3001/reminders', newReminder)
+    setReminders(prev => {
+  const updated = [...prev, response.data];
+  // console.log("Updated reminders:", updated);
+  return updated;
+});}
+catch(error){
+    console.log('failed to add reminders')
+}
+ };
 
   // Update existing reminder
-  const updateReminder = (updatedReminder) => {
-    setReminders(prev =>
-      prev.map(r => (r.id === updatedReminder.id ? updatedReminder : r))
+  const updateReminder = async (updatedReminder) => {
+  //  console.log("top reminder with ID:" , updateReminder.id);
+   try{
+    console.log("updating reminder with ID:" , updatedReminder.id);
+    console.log("full object", updatedReminder)
+    const response= await axios.patch(`http://localhost:3001/reminders/${updatedReminder.id}`, updatedReminder)
+    console.log('sucess1')
+     setReminders(prev =>
+      prev.map(r => (r.id === updatedReminder.id ? response.data : r))
     );
-    // setEditingReminder(null);
+    console.log('sucess')
+    setEditingReminder(null);
+   }
+   catch(error){
+    console.log('failed to update reminders', error)
+   }
   };
 
   // Delete reminder
-  const deleteReminder = (id) => {
-    setReminders(prev => prev.filter(r => r.id !== id));
+  const deleteReminder = async(id) => {
+    try{
+      await axios.delete(`http://localhost:3001/reminders/${id}`);
+      setReminders(prev=> prev.filter(r=>r.id !== id));
+    }
+    catch(error){
+      console.log('failed to delete a reminder', error)
+    }
   };
 
-  const markAsCompleted = (id) => {
+  const markAsCompleted =async (id) => {
     // console.log(id);
-    setReminders(reminders.map(r =>
-      r.id === id ? { ...r, status:'completed' } : r
+   try{
+    const response= await axios.patch(`http://localhost:3001/reminders/${id}`,{status:'completed'});
+     setReminders(prev => prev.map(r =>
+      r.id === response.data.id ? response.data : r
     ));
+   }
+   catch(error){
+    console.log('failed to mark it as completed',error);
+   }
   };
 
   return (
@@ -58,6 +96,8 @@ function App() {
       {showForm ? (
         <ReminderForm
           onSave={(data) => {
+            console.log('updatereminder called from on save', data)
+            // console.log(editingReminder)
             editingReminder ? updateReminder(data) : addReminder(data);
             setShowForm(false);
           }}
