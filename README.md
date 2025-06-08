@@ -1,13 +1,16 @@
+![PWA](https://img.shields.io/badge/PWA-Enabled-brightgreen)
 ## Reminder App
-A React-based reminder application that lets users add, view, edit and filter reminders by day of time, pet, and category. Designed with a clean UI, mobile responsiveness, and intuitive filtering logic.
+A Pet reminder PWA is a React-based reminder application that lets users add, view, edit and filter reminders by day of time, pet, and category. Designed with a clean UI, mobile responsiveness, and intuitive filtering logic.
 ---
 
-[click here to see it live](https://pet-app-kappa.vercel.app/)
+- Frontend: [Live on Vercel](https://pet-app-kappa.vercel.app/)
+- Backend:  [Live on Render](https://backkend-for-pet-app.onrender.com)
 ---
 
 
 ## Features
 - Add, edit, and delete reminders.
+- Built as a **Progressive Web App(PWA)** - this app is installable on desktop and mobile devices, and offers offline support and fast performance.
 - View reminders grouped by status: Pending and Completed.
 - Filter reminders by pet name, time of day (morning, afternoon, evening), and category.
 - Horizontal calendar strip with option to toggle a full calendar.
