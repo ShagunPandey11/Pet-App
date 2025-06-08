@@ -20,6 +20,9 @@
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0.2);
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items:center;
+  justify-content: center
 }
 
 .add-button:hover{
@@ -97,9 +100,9 @@
   }
 
   .add-button {
-    width: 45px;
-    height: 45px;
-    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
     bottom: 0.8rem;
     right: 0.8rem;
   }
