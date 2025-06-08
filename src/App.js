@@ -28,7 +28,7 @@ function App() {
     // console.log(newReminder);
     // setReminders(prev => [...prev, newReminder]);
     try{
-      const response = await axios.post('http://localhost:3001/reminders', newReminder)
+      const response = await api.post('/reminders', newReminder)
     setReminders(prev => {
   const updated = [...prev, response.data];
   // console.log("Updated reminders:", updated);
@@ -45,7 +45,7 @@ catch(error){
    try{
     console.log("updating reminder with ID:" , updatedReminder.id);
     console.log("full object", updatedReminder)
-    const response= await axios.patch(`http://localhost:3001/reminders/${updatedReminder.id}`, updatedReminder)
+    const response= await api.patch(`/reminders/${updatedReminder.id}`, updatedReminder)
     console.log('sucess1')
      setReminders(prev =>
       prev.map(r => (r.id === updatedReminder.id ? response.data : r))
@@ -61,7 +61,7 @@ catch(error){
   // Delete reminder
   const deleteReminder = async(id) => {
     try{
-      await axios.delete(`http://localhost:3001/reminders/${id}`);
+      await api.delete(`/reminders/${id}`);
       setReminders(prev=> prev.filter(r=>r.id !== id));
     }
     catch(error){
@@ -72,7 +72,7 @@ catch(error){
   const markAsCompleted =async (id) => {
     // console.log(id);
    try{
-    const response= await axios.patch(`http://localhost:3001/reminders/${id}`,{status:'completed'});
+    const response= await api.patch(`/reminders/${id}`,{status:'completed'});
      setReminders(prev => prev.map(r =>
       r.id === response.data.id ? response.data : r
     ));
