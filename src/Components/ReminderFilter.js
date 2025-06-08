@@ -1,5 +1,6 @@
 //ReminderFilter.js
 import React from 'react';
+import './ReminderFilter.css'
 
 const ReminderFilter = ({ filters, setFilters }) => {
   const handleTimeFilterChange = (e) => {

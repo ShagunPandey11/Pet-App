@@ -172,17 +172,36 @@
 /* ----------- RESPONSIVE ----------- */
 @media (max-width: 600px) {
   .calendar-strip {
-    padding: 0.5rem;
-    overflow-x: scroll;
+    flex-wrap:wrap;
+    justify-content:center;
+    padding:0.5rem;
   }
 
   .calendar-day {
-    min-width: 60px;
+    flex: 1 1 14%;
+    max-width:44px;
+    min-width: 42px;
+    margin:4px
+  }
+
+  .date-circle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:36px;
+    height:36px;
+    font-size: 1rem;
+    padding:0
+  }
+
+  .day-name{
+    font-size:1rem;
   }
 
   .calendar-toggle button {
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
   }
+
 }
 
