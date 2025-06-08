@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+## Reminder App
+A React-based reminder application that lets users add, view, edit and filter reminders by day of time, pet, and category. Designed with a clean UI, mobile responsiveness, and intuitive filtering logic.
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[click here to see it live](https://pet-app-kappa.vercel.app/)
+---
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
+- Add, edit, and delete reminders.
+- View reminders grouped by status: Pending and Completed.
+- Filter reminders by pet name, time of day (morning, afternoon, evening), and category.
+- Horizontal calendar strip with option to toggle a full calendar.
+- Used fake API for backend purpose.
+- Responsive design optimized for desktop and mobile devices.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
+- React (Functional Components & Hooks)
+- React Datepicker
+- CSS (Flexbox, Media Queries)
+- JavaScript (ES6+)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
+```
+pet_app/
+│
+├── public/                 # Static files and index.html
+├── src/
+│   ├── components/         
+│   ├── FilterReminder.jsx/           #contains the logic for filtering the reminder           
+│   ├── AddReminderButton.js/     # Form for adding and editing the reminder         
+│   ├── CalendarStrip.js/              # contain the logic for calendar  
+│   ├── ReminderCard.js/             #contain the logic of a single reminder being shown           
+│   ├── ReminderFilter.js/           #contain logic for dropdown filters 
+│   └── ReminderList.js/             # contain logic of showing the reminders available                 
+├── package.json                       # Project metadata and dependencies
+├──  App.js/                          #Main component hosting the other logical component and fake API   
+├── api.js/                           #connection with json server   
+└── README.md 
+```
+---
 
-### `npm test`
+## Using Fake API for Data Management
+This project uses a simulated backend (fake API) to handle reminder data operations like fetching, adding, updating, and deleting reminders.All data changes are handled through these mock API calls, keeping state management and UI synchronized with simulated server responses.
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Filter Logic Overview
+- Pending reminders show tasks for today and future dates.
+- Completed reminders show tasks from any date.
+- Time-of-day filters (morning, afternoon, evening) apply only when a specific date is selected and do not restrict pending/completed lists to avoid hiding important tasks.
+- Category and pet filters apply globally across all reminders.
+- This approach ensures users see all relevant reminders clearly without unintentionally filtering out important items.
+---
 
-### `npm run build`
+## Responsive Design
+### The app adapts smoothly across devices:
+- Calendar strip fits screen width on mobile without horizontal scrolling.
+- Buttons and inputs resize for easy tapping.
+- Layout adjusts for small screens with vertical stacking where needed.
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

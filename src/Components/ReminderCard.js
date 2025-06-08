@@ -18,9 +18,9 @@ function ReminderCard({ reminder, onEdit, onDelete, onComplete, showCompleteButt
 
         {reminder.status === 'pending' && (
           <p className="reminder-meta">
-             <span>{reminder.pet}</span>
-             <span>{reminder.time}</span>
-             <span>{reminder.frequency}</span>
+             <span>🐾 { reminder.pet}</span>
+             <span>⏰ { reminder.time}</span>
+             <span>🔁 {reminder.frequency}</span>
         </p> )}
       </div>
       

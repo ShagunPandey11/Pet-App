@@ -21,9 +21,9 @@ const ReminderFilter = ({ filters, setFilters }) => {
         Time:
         <select value={filters.timeFilter} onChange={handleTimeFilterChange}>
           <option value="all">All</option>
-          <option value="morning">Morning (Before 12 PM)</option>
-          <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
-          <option value="evening">Evening (After 5 PM)</option>
+          <option value="morning">☀️  Morning (Before 12 PM)</option>
+          <option value="afternoon">🌤️ Afternoon (12 PM - 5 PM)</option>
+          <option value="evening">🌙  Evening (After 5 PM)</option>
         </select>
       </label>
 

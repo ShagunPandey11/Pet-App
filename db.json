@@ -14,11 +14,11 @@
     },
     {
       "id": "1749306592755",
-      "title": "Feed brownie",
+      "title": "Feed brownie a chicken",
       "pet": "Brownie",
       "category": "Feeding",
       "note": "",
-      "startdate": "2025-06-08",
+      "startdate": "2025-06-09",
       "endDate": null,
       "time": "19:03",
       "frequency": "Daily",
@@ -33,6 +33,42 @@
       "startdate": "2025-06-08",
       "endDate": null,
       "time": "22:25",
+      "frequency": "Daily",
+      "status": "pending"
+    },
+    {
+      "id": "1749376231871",
+      "title": "Buy Cat food.",
+      "pet": "Brownie",
+      "category": "Feeding",
+      "note": "",
+      "startdate": "2025-06-04",
+      "endDate": null,
+      "time": "15:25",
+      "frequency": "Daily",
+      "status": "completed"
+    },
+    {
+      "id": "1749376511690",
+      "title": "Regular checkup of Brownie",
+      "pet": "Brownie",
+      "category": "Health",
+      "note": "",
+      "startdate": "2025-06-15",
+      "endDate": null,
+      "time": "08:17",
+      "frequency": "Daily",
+      "status": "pending"
+    },
+    {
+      "id": "1749376704770",
+      "title": "Feed Simba.",
+      "pet": "Simba",
+      "category": "Feeding",
+      "note": "",
+      "startdate": "2025-06-09",
+      "endDate": null,
+      "time": "15:30",
       "frequency": "Daily",
       "status": "pending"
     }

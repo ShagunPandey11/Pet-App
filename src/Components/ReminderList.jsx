@@ -33,7 +33,7 @@ const ReminderList = ({ reminders, selectedDate, viewAll, onEdit, onDelete, onCo
       </div>
       {showFilters &&  <ReminderFilter filters={filters} setFilters={setFilters} />}
       <div className='reminder-scroll-section'>
-      {All.length === 0 && <p>No reminder schedule for this date</p>}
+      {All.length === 0 && <p>No reminder schedule </p>}
       {All.map(reminder => (
         <ReminderCard
           key={reminder.id}
